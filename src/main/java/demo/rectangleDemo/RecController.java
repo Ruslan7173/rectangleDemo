@@ -36,13 +36,14 @@ public class RecController {
             System.out.println(e.getMessage());
             m.addAttribute("mistake", e.getMessage());
         }
-        return "rect_result";
+        //return "rect_result";
+        return "rectangle";
     }
 
     @GetMapping("/history")
     public String showHistory(Model m){
         //m.addAttribute("message", historyList.toString());
         m.addAttribute("message", rectangleService.getRectangleList().toString());
-        return "history";
+        return "rectangle";
     }
 }

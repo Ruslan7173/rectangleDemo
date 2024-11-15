@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Ввод парметров прямоугольника</title>
@@ -11,11 +11,20 @@
    длина <input name ="l">
     <button>Посчитать площадь и периметр</button>
 </form>
+<!--Скопировали из шаблона rect_result-->
+<p th:if="${recArea!=null}">Площадь = <span th:text="${recArea}"></span></p>
+<p th:if="${recPerim!=null}">Периметр =<span th:text="${recPerim}"></span></p>
+<div th:if="${mistake!=null}">
+    Ошибка: <span th:text="${mistake}"></span>
+</div>
+<!-- -->
 <br>
 <form action="/history">
 <button> вывести список ранее добавленных прямоугольников</button>
 </form>
 <br>
 <a href="/history">показать список</a>
+<!--скопировали из history-->
+<p th:if="${message!=null}"> <span th:text="${message}"></span></p>
 </body>
 </html>
