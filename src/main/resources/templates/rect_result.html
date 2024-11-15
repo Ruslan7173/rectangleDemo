@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Площадь и периметр</title>
+</head>
+<body>
+<p th:if="${recArea!=null}">Площадь = <span th:text="${recArea}"></span></p>
+<p th:if="${recPerim!=null}">Периметр =<span th:text="${recPerim}"></span></p>
+<div th:if="${mistake!=null}">
+  Ошибка: <span th:text="${mistake}"></span>
+</div>
+</body>
+</html>
