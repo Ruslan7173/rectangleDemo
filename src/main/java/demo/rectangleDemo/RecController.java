@@ -12,6 +12,8 @@ import java.util.List;
 public class RecController {
     //Вариант "на коленке" - сделать список прямо полем Контроллера
     //List<Rectangle> historyList = new ArrayList<>();
+    //кондовый способ
+
 
     //Вариант "по-спрнговски" - сделать бин Службы и связать с бином Контроллера
     @Autowired
