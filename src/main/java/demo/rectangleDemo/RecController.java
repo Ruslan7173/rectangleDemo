@@ -1,11 +1,22 @@
 package demo.rectangleDemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class RecController {
+    //Вариант "на коленке" - сделать список прямо полем Контроллера
+    //List<Rectangle> historyList = new ArrayList<>();
+
+    //Вариант "по-спрнговски" - сделать бин Службы и связать с бином Контроллера
+    @Autowired
+    RectangleService rectangleService;
+
     @GetMapping("/")
     public String index(){
         return "rectangle";
@@ -18,6 +29,8 @@ public class RecController {
             Rectangle r = new Rectangle(width, length);
             m.addAttribute("recArea", r.area());
             m.addAttribute("recPerim", r.perimeter());
+            //historyList.add(r);
+            rectangleService.add(r);
         }
         catch (Exception e){
             System.out.println(e.getMessage());
@@ -26,4 +39,10 @@ public class RecController {
         return "rect_result";
     }
 
+    @GetMapping("/history")
+    public String showHistory(Model m){
+        //m.addAttribute("message", historyList.toString());
+        m.addAttribute("message", rectangleService.getRectangleList().toString());
+        return "history";
+    }
 }
